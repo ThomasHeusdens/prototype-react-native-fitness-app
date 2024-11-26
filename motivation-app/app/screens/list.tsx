@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, StyleSheet, ActivityIndicator } from 'react-native';
-import axios from 'axios';
 import { NavigationProp } from '@react-navigation/native';
 import { FIREBASE_AUTH } from '../../Firebase.config';
+import quotesData from '../assets/quotes.json';
 
 interface RouterProps {
   navigation: NavigationProp<any, any>;
@@ -13,22 +13,17 @@ const List = ({ navigation }: RouterProps) => {
   const [author, setAuthor] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const fetchQuote = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get('https://zenquotes.io/api/random');
-      const data = response.data[0];
-      setQuote(data.q);
-      setAuthor(data.a);
-    } catch (error) {
-      console.error('Error fetching quote:', error);
-    } finally {
-      setLoading(false);
-    }
+  const generateRandomQuote = () => {
+    const randomIndex = Math.floor(Math.random() * quotesData.length);
+    const randomQuote = quotesData[randomIndex];
+    setQuote(randomQuote.quote);
+    setAuthor(randomQuote.author);
+    setLoading(false);
   };
 
   useEffect(() => {
-    fetchQuote();
+    setLoading(true);
+    setTimeout(() => generateRandomQuote(), 500);
   }, []);
 
   return (
@@ -40,7 +35,7 @@ const List = ({ navigation }: RouterProps) => {
           <>
             <Text style={styles.quoteText}>"{quote}"</Text>
             <Text style={styles.authorText}>- {author}</Text>
-            <Button title="Generate Another Quote" onPress={fetchQuote} />
+            <Button title="Generate Another Quote" onPress={generateRandomQuote} />
           </>
         )}
       </View>
