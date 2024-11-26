@@ -4,7 +4,7 @@ import React, {useState} from "react";
 const Details = () => {
     return(
         <View>
-            <Text>List</Text>
+            <Text>details</Text>
         </View>
     )
 }
