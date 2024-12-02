@@ -4,33 +4,30 @@
     "slug": "motivation-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "ios": {
       "infoPlist": {
         "NSAppTransportSecurity": {
           "NSAllowsArbitraryLoads": true
         }
-      },  
-      "supportsTablet": true
+      },
+      "supportsTablet": true,
+      "bundleIdentifier": "com.thomasheusdens.motivationapp"
     },
     "android": {
       "android": {
-        "permissions": ["INTERNET"]
+        "permissions": [
+          "INTERNET"
+        ]
       },
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      "package": "com.thomasheusdens.motivationapp",
+      "GoogleServicesFile": "./android/app/google-services.json"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "extra": {
+      "eas": {
+        "projectId": "d24c8d85-84cd-4f99-920d-37c0ce42fe57"
+      }
     }
   }
 }

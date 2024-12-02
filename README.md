@@ -5,3 +5,4 @@
 - [Equivalent of div in React Expo](https://expo.dev/blog/from-web-to-native-with-react)
 - [Working loading symbol](https://reactnative.dev/docs/activityindicator)
 - [ZenQuotes.io](https://zenquotes.io/)
+- [Push notifications](https://www.youtube.com/watch?v=V-hois8dgM4&t=757s&ab_channel=Dan%27sReactNativeLab)
