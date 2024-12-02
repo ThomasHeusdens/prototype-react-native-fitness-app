@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Button } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 import { FIREBASE_AUTH } from '../../Firebase.config';
 import quotesData from '../assets/quotes.json';
@@ -52,10 +52,10 @@ const List = ({ navigation }: RouterProps) => {
     if (user && quoteId !== null) {
       if (likedQuotes.includes(quoteId)) {
         await removeLikedQuote(user.uid, quoteId);
-        setLikedQuotes(likedQuotes.filter((id) => id !== quoteId));
+        await loadLikedQuotes();
       } else {
         await addLikedQuote(user.uid, quoteId);
-        setLikedQuotes([...likedQuotes, quoteId]);
+        await loadLikedQuotes(); 
       }
     }
   };
@@ -68,13 +68,16 @@ const List = ({ navigation }: RouterProps) => {
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={toggleLike}>
-            <Image
-              source={likedQuotes.includes(quoteId!) ? LikedIcon : LikeIcon}
-              style={styles.icon}
-            />
+          <Image
+            source={likedQuotes.includes(quoteId!) ? LikedIcon : LikeIcon}
+            style={styles.icon}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={generateRandomQuote}>
+          <Text style={styles.buttonText}>Randomize Quote</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.buttonContainer}>
+      <View style={styles.navigationContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('details')}>
           <Text style={styles.buttonText}>Details</Text>
         </TouchableOpacity>
@@ -92,7 +95,7 @@ const List = ({ navigation }: RouterProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
+    backgroundColor: '#f5f5f5',
     padding: 20,
   },
   quoteContainer: {
@@ -104,9 +107,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#f2f2f2',
-    padding: 10,
-    borderRadius: 8,
+    backgroundColor: '#e0e0e0',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 20,
+  },
+  navigationContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#e0e0e0', 
+    padding: 15,
+    borderRadius: 10,
   },
   quoteText: {
     fontSize: 18,
@@ -120,12 +132,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   icon: {
-    width: 24,
-    height: 24,
+    width: 30,
+    height: 30,
   },
   buttonText: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#007AFF',
   },
 });
 

@@ -4,7 +4,7 @@ import React, {useState} from "react";
 const Details = () => {
     return(
         <View>
-            <Text>details</Text>
+            <Text>Details of your favourite quotes are coming soon!</Text>
         </View>
     )
 }

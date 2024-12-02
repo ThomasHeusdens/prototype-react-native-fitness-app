@@ -2,7 +2,6 @@ import { getFirestore, doc, setDoc, getDoc, updateDoc, arrayUnion, arrayRemove }
 
 const db = getFirestore();
 
-// Get a user's liked quotes
 export const getLikedQuotes = async (userId: string): Promise<number[]> => {
   const userDoc = doc(db, "users", userId);
   const docSnapshot = await getDoc(userDoc);
@@ -12,7 +11,6 @@ export const getLikedQuotes = async (userId: string): Promise<number[]> => {
   return [];
 };
 
-// Add a liked quote
 export const addLikedQuote = async (userId: string, quoteId: number): Promise<void> => {
   const userDoc = doc(db, "users", userId);
   await updateDoc(userDoc, {
@@ -20,7 +18,6 @@ export const addLikedQuote = async (userId: string, quoteId: number): Promise<vo
   });
 };
 
-// Remove a liked quote
 export const removeLikedQuote = async (userId: string, quoteId: number): Promise<void> => {
   const userDoc = doc(db, "users", userId);
   await updateDoc(userDoc, {
@@ -28,7 +25,6 @@ export const removeLikedQuote = async (userId: string, quoteId: number): Promise
   });
 };
 
-// Initialize a user's document in Firestore (if it doesn't exist)
 export const initializeUser = async (userId: string): Promise<void> => {
   const userDoc = doc(db, "users", userId);
   const docSnapshot = await getDoc(userDoc);
