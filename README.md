@@ -6,3 +6,7 @@
 - [Working loading symbol](https://reactnative.dev/docs/activityindicator)
 - [ZenQuotes.io](https://zenquotes.io/)
 - [Push notifications](https://www.youtube.com/watch?v=V-hois8dgM4&t=757s&ab_channel=Dan%27sReactNativeLab)
+- [Expo Linear Gradient](https://docs.expo.dev/versions/latest/sdk/linear-gradient/)
+- [TouchableOpacity](https://reactnative.dev/docs/touchableopacity)
+- [Firestore CRUD Example](https://www.bezkoder.com/react-typescript-firestore/?utm_source=chatgpt.com)
+- 

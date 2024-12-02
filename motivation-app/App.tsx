@@ -6,6 +6,7 @@ import Details from './app/screens/details';
 import { useEffect, useState } from 'react';
 import {onAuthStateChanged, User} from "firebase/auth"
 import { FIREBASE_AUTH } from './Firebase.config';
+import Liked from './app/screens/liked';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ function InsideLayout() {
     <InsideStack.Navigator>
       <InsideStack.Screen name='Motivation' component={List} />
       <InsideStack.Screen name='details' component={Details} />
+      <InsideStack.Screen name="Liked" component={Liked} />
     </InsideStack.Navigator>
   )
 }
