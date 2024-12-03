@@ -11,3 +11,4 @@ A simple motivational app where you get a random quote everytime you login and w
 - [TouchableOpacity](https://reactnative.dev/docs/touchableopacity)
 - [Create a CRUD in React Expo with Firestore](https://www.youtube.com/watch?v=kwVbKV0ZFEs&ab_channel=SimplyReactNative)
 - [Firestore CRUD Example](https://www.bezkoder.com/react-typescript-firestore/?utm_source=chatgpt.com)
+- [FlatList](https://reactnative.dev/docs/flatlist)
